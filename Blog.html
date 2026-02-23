@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a class="active" href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <!-- Page Header -->
+    <section id="page-header" class="blog-header">
+      <h2>Fashion Blog</h2>
+      <p>Style tips, trends, and inspiration for your wardrobe</p>
+    </section>
+
+    <!-- Blog Content -->
+    <section id="blog" class="section-p1">
+      <div class="blog-container">
+        <!-- Blog Sidebar -->
+        <div class="blog-sidebar">
+          <div class="sidebar-widget">
+            <h3>Search</h3>
+            <div class="search-widget">
+              <input
+                type="text"
+                id="blogSearch"
+                placeholder="Search articles..."
+              />
+              <button><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Categories</h3>
+            <ul class="category-list">
+              <li>
+                <a href="#" data-category="all">All Posts <span>(12)</span></a>
+              </li>
+              <li>
+                <a href="#" data-category="fashion-tips"
+                  >Fashion Tips <span>(4)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-category="trends">Trends <span>(3)</span></a>
+              </li>
+              <li>
+                <a href="#" data-category="styling"
+                  >Styling Guide <span>(3)</span></a
+                >
+              </li>
+              <li>
+                <a href="#" data-category="seasonal"
+                  >Seasonal <span>(2)</span></a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Recent Posts</h3>
+            <div class="recent-posts">
+              <div class="recent-post">
+                <img src="img/banner/b16.jpg" alt="Recent post" />
+                <div class="recent-post-content">
+                  <h5>10 Must-Have Pieces for Your Wardrobe</h5>
+                  <span>January 15, 2024</span>
+                </div>
+              </div>
+              <div class="recent-post">
+                <img src="img/banner/b17.jpg" alt="Recent post" />
+                <div class="recent-post-content">
+                  <h5>Spring Fashion Trends 2024</h5>
+                  <span>January 10, 2024</span>
+                </div>
+              </div>
+              <div class="recent-post">
+                <img src="img/banner/b18.jpg" alt="Recent post" />
+                <div class="recent-post-content">
+                  <h5>How to Style Casual Outfits</h5>
+                  <span>January 5, 2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-widget">
+            <h3>Tags</h3>
+            <div class="tag-cloud">
+              <a href="#" class="tag">Fashion</a>
+              <a href="#" class="tag">Style</a>
+              <a href="#" class="tag">Trends</a>
+              <a href="#" class="tag">Casual</a>
+              <a href="#" class="tag">Formal</a>
+              <a href="#" class="tag">Summer</a>
+              <a href="#" class="tag">Winter</a>
+              <a href="#" class="tag">Accessories</a>
+              <a href="#" class="tag">Colors</a>
+              <a href="#" class="tag">Wardrobe</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blog Posts -->
+        <div class="blog-posts">
+          <div class="blog-post" data-category="fashion-tips">
+            <div class="post-image">
+              <img src="img/banner/b1.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">20</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Fashion Tips</span>
+                <span class="author">By Sarah Johnson</span>
+                <span class="comments">5 Comments</span>
+              </div>
+              <h2>10 Essential Wardrobe Pieces Every Woman Needs</h2>
+              <p>
+                Building a versatile wardrobe doesn't have to be overwhelming.
+                These 10 essential pieces will form the foundation of countless
+                stylish outfits, taking you from day to night and season to
+                season with ease.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="trends">
+            <div class="post-image">
+              <img src="img/banner/b2.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">18</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Trends</span>
+                <span class="author">By Michael Chen</span>
+                <span class="comments">8 Comments</span>
+              </div>
+              <h2>Spring 2024 Fashion Trends You Need to Know</h2>
+              <p>
+                Get ready for spring with the hottest fashion trends of 2024.
+                From bold colors to sustainable fabrics, discover what's
+                trending and how to incorporate these looks into your personal
+                style.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="styling">
+            <div class="post-image">
+              <img src="img/banner/b4.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">15</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Styling Guide</span>
+                <span class="author">By Emily Rodriguez</span>
+                <span class="comments">12 Comments</span>
+              </div>
+              <h2>How to Master the Art of Layering</h2>
+              <p>
+                Layering is more than just staying warm – it's an art form that
+                can elevate any outfit. Learn the secrets to creating stylish,
+                functional layered looks that work for any season.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="fashion-tips">
+            <div class="post-image">
+              <img src="img/banner/b7.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">12</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Fashion Tips</span>
+                <span class="author">By Sarah Johnson</span>
+                <span class="comments">6 Comments</span>
+              </div>
+              <h2>Dressing for Your Body Type: A Complete Guide</h2>
+              <p>
+                Every body is beautiful, and the right clothes can help you feel
+                confident and comfortable. Discover how to choose styles that
+                flatter your unique shape and enhance your best features.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="trends">
+            <div class="post-image">
+              <img src="img/banner/b10.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">08</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Trends</span>
+                <span class="author">By Michael Chen</span>
+                <span class="comments">9 Comments</span>
+              </div>
+              <h2>Sustainable Fashion: Style with a Conscience</h2>
+              <p>
+                Fashion and sustainability can go hand in hand. Explore
+                eco-friendly brands, sustainable materials, and tips for
+                building a more environmentally conscious wardrobe without
+                sacrificing style.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="styling">
+            <div class="post-image">
+              <img src="img/banner/b14.png" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">05</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Styling Guide</span>
+                <span class="author">By Emily Rodriguez</span>
+                <span class="comments">15 Comments</span>
+              </div>
+              <h2>From Day to Night: Transitional Outfit Ideas</h2>
+              <p>
+                Master the art of versatile dressing with outfits that
+                seamlessly transition from office to evening. Simple styling
+                tricks can transform your look without a complete wardrobe
+                change.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="seasonal">
+            <div class="post-image">
+              <img src="img/banner/b16.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">02</span>
+                <span class="month">Jan</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Seasonal</span>
+                <span class="author">By Sarah Johnson</span>
+                <span class="comments">7 Comments</span>
+              </div>
+              <h2>Winter Wardrobe Essentials: Stay Warm and Stylish</h2>
+              <p>
+                Don't let cold weather cramp your style. Discover the key pieces
+                that will keep you warm while looking effortlessly chic
+                throughout the winter months.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="blog-post" data-category="fashion-tips">
+            <div class="post-image">
+              <img src="img/banner/b17.jpg" alt="Blog post" />
+              <div class="post-date">
+                <span class="day">28</span>
+                <span class="month">Dec</span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="category">Fashion Tips</span>
+                <span class="author">By Michael Chen</span>
+                <span class="comments">11 Comments</span>
+              </div>
+              <h2>Color Coordination: Creating Harmonious Outfits</h2>
+              <p>
+                Understanding color theory can revolutionize your style. Learn
+                how to combine colors effectively to create outfits that are
+                both eye-catching and harmonious.
+              </p>
+              <a href="#" class="read-more"
+                >Read More <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="blog-pagination">
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <button class="page-btn">
+              Next <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> KWABENYA-KFC, ACCRA, GHANA</p>
+        <p><strong>Phone:</strong> +233 593 943 403</p>
+        <p><strong>Hours:</strong> 10:00AM - 18:00PM, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2024, Bagga's Ecommerce - HTML CSS JS Template</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="blog.js"></script>
+  </body>
+</html>

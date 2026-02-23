@@ -1,0 +1,9 @@
+{
+  "name": "baggas-ecommerce",
+  "version": "1.0.0",
+  "description": "E-commerce website with HTML, CSS, and JavaScript",
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  }
+}

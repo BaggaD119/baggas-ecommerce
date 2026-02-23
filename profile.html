@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#088178" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>My Profile - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="profile-styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="index.html"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <!-- Global Search Bar -->
+      <div class="global-search">
+        <input
+          type="text"
+          id="globalSearchInput"
+          placeholder="Search products..."
+        />
+        <button id="globalSearchButton"><i class="fas fa-search"></i></button>
+      </div>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a class="active" href="profile.html"
+              ><i class="fas fa-user"></i> Profile</a
+            >
+          </li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="search.html" class="mobile-search-btn"
+          ><i class="fas fa-search"></i
+        ></a>
+        <a href="profile.html" class="mobile-auth-btn"
+          ><i class="fas fa-user"></i
+        ></a>
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <!-- Profile Container -->
+    <section id="profile-container">
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <div class="profile-avatar">
+          <div class="avatar-circle" id="userAvatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <button
+            class="avatar-upload-btn"
+            onclick="profileSystem.changeAvatar()"
+          >
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        <div class="profile-info">
+          <h1 id="profileUserName">Loading...</h1>
+          <p id="profileUserEmail">Loading...</p>
+          <div class="profile-stats">
+            <div class="stat-item">
+              <span class="stat-number" id="totalOrders">0</span>
+              <span class="stat-label">Orders</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="totalSpent">$0</span>
+              <span class="stat-label">Total Spent</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number" id="wishlistCount">0</span>
+              <span class="stat-label">Wishlist</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Navigation -->
+      <div class="profile-nav">
+        <button class="profile-nav-btn active" data-section="overview">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Overview</span>
+        </button>
+        <button class="profile-nav-btn" data-section="orders">
+          <i class="fas fa-shopping-cart"></i>
+          <span>My Orders</span>
+          <span class="nav-badge" id="ordersBadge">0</span>
+        </button>
+        <button class="profile-nav-btn" data-section="wishlist">
+          <i class="fas fa-heart"></i>
+          <span>Wishlist</span>
+          <span class="nav-badge" id="wishlistBadge">0</span>
+        </button>
+        <button class="profile-nav-btn" data-section="addresses">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Addresses</span>
+        </button>
+        <button class="profile-nav-btn" data-section="settings">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </button>
+      </div>
+
+      <!-- Profile Content -->
+      <div class="profile-content">
+        <!-- Overview Section -->
+        <div id="overview" class="profile-section active">
+          <div class="section-header">
+            <h2>Account Overview</h2>
+            <p>Welcome back! Here's what's happening with your account.</p>
+          </div>
+
+          <div class="overview-grid">
+            <!-- Recent Orders -->
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>Recent Orders</h3>
+                <a href="#" onclick="profileSystem.switchSection('orders')"
+                  >View All</a
+                >
+              </div>
+              <div class="recent-orders" id="recentOrdersList">
+                <!-- Recent orders will be populated here -->
+              </div>
+            </div>
+
+            <!-- Account Activity -->
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>Account Activity</h3>
+              </div>
+              <div class="activity-list" id="activityList">
+                <!-- Activity will be populated here -->
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>Quick Actions</h3>
+              </div>
+              <div class="quick-actions">
+                <button
+                  class="action-btn"
+                  onclick="window.location.href = 'shop.html'"
+                >
+                  <i class="fas fa-shopping-bag"></i>
+                  <span>Continue Shopping</span>
+                </button>
+                <button
+                  class="action-btn"
+                  onclick="profileSystem.switchSection('wishlist')"
+                >
+                  <i class="fas fa-heart"></i>
+                  <span>View Wishlist</span>
+                </button>
+                <button
+                  class="action-btn"
+                  onclick="profileSystem.switchSection('addresses')"
+                >
+                  <i class="fas fa-plus"></i>
+                  <span>Add Address</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Account Summary -->
+            <div class="overview-card">
+              <div class="card-header">
+                <h3>Account Summary</h3>
+              </div>
+              <div class="account-summary">
+                <div class="summary-item">
+                  <span class="summary-label">Member Since</span>
+                  <span class="summary-value" id="memberSince">Loading...</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">Last Login</span>
+                  <span class="summary-value" id="lastLogin">Today</span>
+                </div>
+                <div class="summary-item">
+                  <span class="summary-label">Account Status</span>
+                  <span class="summary-value status-active">Active</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Orders Section -->
+        <div id="orders" class="profile-section">
+          <div class="section-header">
+            <h2>My Orders</h2>
+            <p>Track and manage your orders</p>
+          </div>
+
+          <!-- Order Filters -->
+          <div class="order-filters">
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-status="all">
+                All Orders
+              </button>
+              <button class="filter-tab" data-status="pending">Pending</button>
+              <button class="filter-tab" data-status="processing">
+                Processing
+              </button>
+              <button class="filter-tab" data-status="shipped">Shipped</button>
+              <button class="filter-tab" data-status="delivered">
+                Delivered
+              </button>
+            </div>
+            <div class="filter-search">
+              <input
+                type="text"
+                id="orderSearchInput"
+                placeholder="Search orders..."
+              />
+              <i class="fas fa-search"></i>
+            </div>
+          </div>
+
+          <!-- Orders List -->
+          <div class="orders-list" id="ordersList">
+            <!-- Orders will be populated here -->
+          </div>
+        </div>
+
+        <!-- Wishlist Section -->
+        <div id="wishlist" class="profile-section">
+          <div class="section-header">
+            <h2>My Wishlist</h2>
+            <p>Items you've saved for later</p>
+          </div>
+
+          <!-- Wishlist Actions -->
+          <div class="wishlist-actions">
+            <button
+              class="btn btn-primary"
+              onclick="profileSystem.addAllToCart()"
+            >
+              <i class="fas fa-shopping-cart"></i>
+              Add All to Cart
+            </button>
+            <button
+              class="btn btn-secondary"
+              onclick="profileSystem.clearWishlist()"
+            >
+              <i class="fas fa-trash"></i>
+              Clear Wishlist
+            </button>
+          </div>
+
+          <!-- Wishlist Grid -->
+          <div class="wishlist-grid" id="wishlistGrid">
+            <!-- Wishlist items will be populated here -->
+          </div>
+        </div>
+
+        <!-- Addresses Section -->
+        <div id="addresses" class="profile-section">
+          <div class="section-header">
+            <h2>My Addresses</h2>
+            <p>Manage your shipping and billing addresses</p>
+          </div>
+
+          <!-- Add Address Button -->
+          <div class="addresses-actions">
+            <button
+              class="btn btn-primary"
+              onclick="profileSystem.showAddAddressModal()"
+            >
+              <i class="fas fa-plus"></i>
+              Add New Address
+            </button>
+          </div>
+
+          <!-- Addresses Grid -->
+          <div class="addresses-grid" id="addressesGrid">
+            <!-- Addresses will be populated here -->
+          </div>
+        </div>
+
+        <!-- Settings Section -->
+        <div id="settings" class="profile-section">
+          <div class="section-header">
+            <h2>Account Settings</h2>
+            <p>Manage your account preferences and security</p>
+          </div>
+
+          <div class="settings-grid">
+            <!-- Personal Information -->
+            <div class="settings-card">
+              <h3>Personal Information</h3>
+              <form id="personalInfoForm">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>First Name</label>
+                    <input type="text" id="settingsFirstName" required />
+                  </div>
+                  <div class="form-group">
+                    <label>Last Name</label>
+                    <input type="text" id="settingsLastName" required />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input type="email" id="settingsEmail" required />
+                </div>
+                <div class="form-group">
+                  <label>Phone Number</label>
+                  <input type="tel" id="settingsPhone" required />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Update Information
+                </button>
+              </form>
+            </div>
+
+            <!-- Change Password -->
+            <div class="settings-card">
+              <h3>Change Password</h3>
+              <form id="changePasswordForm">
+                <div class="form-group">
+                  <label>Current Password</label>
+                  <input type="password" id="currentPassword" required />
+                </div>
+                <div class="form-group">
+                  <label>New Password</label>
+                  <input type="password" id="newPassword" required />
+                </div>
+                <div class="form-group">
+                  <label>Confirm New Password</label>
+                  <input type="password" id="confirmNewPassword" required />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Change Password
+                </button>
+              </form>
+            </div>
+
+            <!-- Preferences -->
+            <div class="settings-card">
+              <h3>Preferences</h3>
+              <div class="preference-item">
+                <label class="preference-label">
+                  <input type="checkbox" id="emailNotifications" />
+                  <span class="checkmark"></span>
+                  Email Notifications
+                </label>
+                <p>Receive updates about your orders and promotions</p>
+              </div>
+              <div class="preference-item">
+                <label class="preference-label">
+                  <input type="checkbox" id="smsNotifications" />
+                  <span class="checkmark"></span>
+                  SMS Notifications
+                </label>
+                <p>Get text messages for order updates</p>
+              </div>
+              <div class="preference-item">
+                <label class="preference-label">
+                  <input type="checkbox" id="marketingEmails" />
+                  <span class="checkmark"></span>
+                  Marketing Emails
+                </label>
+                <p>Receive promotional offers and newsletters</p>
+              </div>
+              <button
+                class="btn btn-primary"
+                onclick="profileSystem.savePreferences()"
+              >
+                Save Preferences
+              </button>
+            </div>
+
+            <!-- Account Actions -->
+            <div class="settings-card">
+              <h3>Account Actions</h3>
+              <div class="account-actions">
+                <button
+                  class="btn btn-secondary"
+                  onclick="profileSystem.downloadData()"
+                >
+                  <i class="fas fa-download"></i>
+                  Download My Data
+                </button>
+                <button
+                  class="btn btn-warning"
+                  onclick="profileSystem.deactivateAccount()"
+                >
+                  <i class="fas fa-pause"></i>
+                  Deactivate Account
+                </button>
+                <button
+                  class="btn btn-danger"
+                  onclick="profileSystem.deleteAccount()"
+                >
+                  <i class="fas fa-trash"></i>
+                  Delete Account
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="profileModal" class="profile-modal">
+      <div class="profile-modal-content">
+        <div class="profile-modal-header">
+          <h2 id="modalTitle">Modal Title</h2>
+          <button class="profile-modal-close">&times;</button>
+        </div>
+        <div class="profile-modal-body" id="modalBody">
+          <!-- Modal content will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p>
+          <strong>Address:</strong> 562 Wellington Road, Street 32, San
+          Francisco
+        </p>
+        <p><strong>Phone:</strong> +01 2222 365 /(+91) 01 2345 6789</p>
+        <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="profile.html">My Profile</a>
+        <a href="cart.html">View Cart</a>
+        <a href="#" onclick="profileSystem.switchSection('wishlist')"
+          >My Wishlist</a
+        >
+        <a href="#" onclick="profileSystem.switchSection('orders')"
+          >Track My Order</a
+        >
+        <a href="contact.html">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>© 2021, Tech2 etc - HTML CSS Ecommerce Template</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="auth.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="global-search.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>

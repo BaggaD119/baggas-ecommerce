@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <!-- Breadcrumb Navigation -->
+    <section id="breadcrumb" class="section-p1">
+      <div class="breadcrumb-container">
+        <a href="index.html">Home</a>
+        <i class="fas fa-chevron-right"></i>
+        <a href="shop.html">Shop</a>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadcrumb-category">T-Shirts</span>
+        <i class="fas fa-chevron-right"></i>
+        <span id="breadcrumb-product">Product Name</span>
+      </div>
+    </section>
+
+    <!-- Product Detail Section -->
+    <section id="product-detail" class="section-p1">
+      <div class="product-detail-container">
+        <!-- Product Images -->
+        <div class="product-images">
+          <div class="main-image">
+            <img id="mainImg" src="" alt="Product Image" />
+            <div class="image-zoom-overlay">
+              <i class="fas fa-search-plus"></i>
+              <span>Click to zoom</span>
+            </div>
+          </div>
+          <div class="thumbnail-images">
+            <div class="thumbnail-container" id="thumbnailContainer">
+              <!-- Thumbnails will be loaded dynamically -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Information -->
+        <div class="product-info">
+          <div class="product-header">
+            <span class="product-brand" id="productBrand">Brand</span>
+            <h1 class="product-title" id="productTitle">Product Name</h1>
+            <div class="product-rating">
+              <div class="stars" id="productStars">
+                <!-- Stars will be loaded dynamically -->
+              </div>
+              <span class="rating-count" id="ratingCount">(0 reviews)</span>
+            </div>
+          </div>
+
+          <div class="product-pricing">
+            <div class="price-container">
+              <span class="current-price" id="currentPrice">$0.00</span>
+              <span class="original-price" id="originalPrice">$0.00</span>
+              <span class="discount-badge" id="discountBadge">-0%</span>
+            </div>
+            <div class="stock-status">
+              <i class="fas fa-check-circle"></i>
+              <span id="stockStatus">In Stock</span>
+            </div>
+          </div>
+
+          <div class="product-description">
+            <p id="productDescription">
+              Product description will be loaded here...
+            </p>
+          </div>
+
+          <!-- Product Options -->
+          <div class="product-options">
+            <!-- Color Selection -->
+            <div class="option-group">
+              <label class="option-label">Color:</label>
+              <div class="color-options" id="colorOptions">
+                <!-- Color options will be loaded dynamically -->
+              </div>
+            </div>
+
+            <!-- Size Selection -->
+            <div class="option-group">
+              <label class="option-label">Size:</label>
+              <div class="size-options" id="sizeOptions">
+                <!-- Size options will be loaded dynamically -->
+              </div>
+            </div>
+
+            <!-- Quantity Selection -->
+            <div class="option-group">
+              <label class="option-label">Quantity:</label>
+              <div class="quantity-selector">
+                <button class="qty-btn" id="decreaseQty">-</button>
+                <input type="number" id="quantity" value="1" min="1" max="10" />
+                <button class="qty-btn" id="increaseQty">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="product-actions">
+            <button class="btn-primary" id="addToCartBtn">
+              <i class="fas fa-shopping-cart"></i>
+              Add to Cart
+            </button>
+            <button class="btn-secondary" id="addToWishlistBtn">
+              <i class="far fa-heart"></i>
+              Add to Wishlist
+            </button>
+            <button class="btn-outline" id="buyNowBtn">Buy Now</button>
+          </div>
+
+          <!-- Product Features -->
+          <div class="product-features">
+            <div class="feature-item">
+              <i class="fas fa-truck"></i>
+              <div>
+                <strong>Free Shipping</strong>
+                <span>On orders over $50</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-undo"></i>
+              <div>
+                <strong>Easy Returns</strong>
+                <span>30-day return policy</span>
+              </div>
+            </div>
+            <div class="feature-item">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <strong>Secure Payment</strong>
+                <span>100% secure checkout</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Details Tabs -->
+    <section id="product-tabs" class="section-p1">
+      <div class="tabs-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="description">
+            Description
+          </button>
+          <button class="tab-btn" data-tab="specifications">
+            Specifications
+          </button>
+          <button class="tab-btn" data-tab="reviews">Reviews</button>
+          <button class="tab-btn" data-tab="shipping">Shipping Info</button>
+        </div>
+
+        <div class="tab-content">
+          <div class="tab-panel active" id="description-tab">
+            <h3>Product Description</h3>
+            <div id="detailedDescription">
+              <!-- Detailed description will be loaded here -->
+            </div>
+          </div>
+
+          <div class="tab-panel" id="specifications-tab">
+            <h3>Specifications</h3>
+            <div class="specs-table" id="specificationsTable">
+              <!-- Specifications will be loaded here -->
+            </div>
+          </div>
+
+          <div class="tab-panel" id="reviews-tab">
+            <h3>Customer Reviews</h3>
+            <div class="reviews-container" id="reviewsContainer">
+              <!-- Reviews will be loaded here -->
+            </div>
+          </div>
+
+          <div class="tab-panel" id="shipping-tab">
+            <h3>Shipping Information</h3>
+            <div class="shipping-info">
+              <div class="shipping-option">
+                <strong>Standard Shipping (5-7 business days)</strong>
+                <span>Free on orders over $50</span>
+              </div>
+              <div class="shipping-option">
+                <strong>Express Shipping (2-3 business days)</strong>
+                <span>$9.99</span>
+              </div>
+              <div class="shipping-option">
+                <strong>Overnight Shipping (1 business day)</strong>
+                <span>$19.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Products -->
+    <section id="related-products" class="section-p1">
+      <h2>Related Products</h2>
+      <div class="pro-container" id="relatedProductsContainer">
+        <!-- Related products will be loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- Image Zoom Modal -->
+    <div id="imageZoomModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <img id="zoomedImage" src="" alt="Zoomed Product Image" />
+      </div>
+    </div>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> KWABENYA-KFC, ACCRA, GHANA</p>
+        <p><strong>Phone:</strong> +233 593 943 403</p>
+        <p><strong>Hours:</strong> 10:00AM - 18:00PM, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2024, Bagga's Ecommerce - HTML CSS JS Template</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="product-detail.js"></script>
+  </body>
+</html>

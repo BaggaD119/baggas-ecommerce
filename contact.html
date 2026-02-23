@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a class="active" href="contact.html">Contact</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <!-- Page Header -->
+    <section id="page-header" class="contact-header">
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you. Get in touch with us!</p>
+    </section>
+
+    <!-- Contact Information -->
+    <section id="contact-info" class="section-p1">
+      <div class="contact-container">
+        <div class="contact-details">
+          <h2>Get In Touch</h2>
+          <p>
+            Have a question, suggestion, or just want to say hello? We're here
+            to help! Reach out to us through any of the methods below, and we'll
+            get back to you as soon as possible.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="method-info">
+                <h4>Visit Our Store</h4>
+                <p>KWABENYA-KFC, ACCRA, GHANA</p>
+                <p>Open Mon-Sat: 10:00AM - 18:00PM</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="method-info">
+                <h4>Call Us</h4>
+                <p>+233 593 943 403</p>
+                <p>Customer Service: 24/7</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="method-info">
+                <h4>Email Us</h4>
+                <p>info@baggas-ecommerce.com</p>
+                <p>support@baggas-ecommerce.com</p>
+              </div>
+            </div>
+
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="method-info">
+                <h4>Business Hours</h4>
+                <p>Monday - Friday: 9:00AM - 6:00PM</p>
+                <p>Saturday: 10:00AM - 4:00PM</p>
+                <p>Sunday: Closed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <h3>Send Us a Message</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First Name *</label>
+                <input type="text" id="firstName" name="firstName" required />
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last Name *</label>
+                <input type="text" id="lastName" name="lastName" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <select id="subject" name="subject" required>
+                <option value="">Select a subject</option>
+                <option value="general">General Inquiry</option>
+                <option value="order">Order Support</option>
+                <option value="returns">Returns & Exchanges</option>
+                <option value="shipping">Shipping Information</option>
+                <option value="product">Product Question</option>
+                <option value="complaint">Complaint</option>
+                <option value="compliment">Compliment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="orderNumber">Order Number (if applicable)</label>
+              <input
+                type="text"
+                id="orderNumber"
+                name="orderNumber"
+                placeholder="e.g., #12345"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Please provide as much detail as possible..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="newsletter" name="newsletter" />
+                <span class="checkmark"></span>
+                Subscribe to our newsletter for updates and special offers
+              </label>
+            </div>
+
+            <button type="submit" class="btn-primary submit-btn">
+              <i class="fas fa-paper-plane"></i>
+              Send Message
+            </button>
+          </form>
+
+          <div id="formMessage" class="form-message"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-p1">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>What are your shipping options and costs?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We offer free standard shipping on orders over $50. For orders
+              under $50, standard shipping is $10. Express shipping (2-3
+              business days) is available for $15, and overnight shipping for
+              $25. International shipping rates vary by location.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>What is your return policy?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We offer a 30-day return policy for unworn items in original
+              condition with tags attached. Returns are free for defective items
+              or our error. For other returns, a $5 return shipping fee applies.
+              Refunds are processed within 5-7 business days.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>How do I track my order?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Once your order ships, you'll receive a tracking number via email.
+              You can track your package on our website or directly with the
+              shipping carrier. Orders typically ship within 1-2 business days.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>Do you offer size exchanges?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Yes! We offer free size exchanges within 30 days of purchase.
+              Simply contact our customer service team to initiate an exchange.
+              We'll send you a prepaid return label and ship the new size once
+              we receive the original item.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>What payment methods do you accept?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              We accept all major credit cards (Visa, MasterCard, American
+              Express, Discover), PayPal, Apple Pay, Google Pay, and Shop Pay.
+              All transactions are secured with SSL encryption for your
+              protection.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <h4>How can I get updates on new arrivals and sales?</h4>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>
+              Subscribe to our newsletter to be the first to know about new
+              arrivals, exclusive sales, and special promotions. You can also
+              follow us on social media for daily updates and style inspiration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="section-p1">
+      <h2>Find Our Store</h2>
+      <div class="map-container">
+        <div class="map-placeholder">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3>Interactive Map</h3>
+          <p>KWABENYA-KFC, ACCRA, GHANA</p>
+          <p>
+            In a real implementation, this would be an embedded Google Maps or
+            similar service.
+          </p>
+          <button class="btn-outline">Get Directions</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> KWABENYA-KFC, ACCRA, GHANA</p>
+        <p><strong>Phone:</strong> +233 593 943 403</p>
+        <p><strong>Hours:</strong> 10:00AM - 18:00PM, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2024, Bagga's Ecommerce - HTML CSS JS Template</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="contact.js"></script>
+  </body>
+</html>

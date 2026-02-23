@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "D:/Build-and-Deploy-Ecommerce-Website-main/Build-and-Deploy-Ecommerce-Website-main/img"
+    }
+  ],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "E-COMMERCE",
+    "liveServer.settings.port": 5501
+  }
+}

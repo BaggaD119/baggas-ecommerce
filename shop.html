@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="shop.html">Shop</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <section id="page-header">
+      <h2>#stayhome</h2>
+      <p>Save more with coupons & up to 70% off!</p>
+    </section>
+
+    <section id="shop-controls" class="section-p1">
+      <div class="controls-container">
+        <div class="search-box">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products..."
+          />
+          <i class="fas fa-search"></i>
+        </div>
+
+        <div class="filter-sort-container">
+          <div class="filter-group">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter">
+              <option value="all">All Categories</option>
+              <option value="shirts">T-Shirts</option>
+              <option value="pants">Pants</option>
+              <option value="shoes">Shoes</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="brandFilter">Brand:</label>
+            <select id="brandFilter">
+              <option value="all">All Brands</option>
+              <option value="adidas">Adidas</option>
+              <option value="nike">Nike</option>
+              <option value="puma">Puma</option>
+              <option value="zara">Zara</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="priceFilter">Price Range:</label>
+            <select id="priceFilter">
+              <option value="all">All Prices</option>
+              <option value="0-50">$0 - $50</option>
+              <option value="50-100">$50 - $100</option>
+              <option value="100-200">$100 - $200</option>
+              <option value="200+">$200+</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="sortBy">Sort By:</label>
+            <select id="sortBy">
+              <option value="default">Default</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name-az">Name: A to Z</option>
+              <option value="name-za">Name: Z to A</option>
+              <option value="rating">Highest Rated</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="clearFilters" class="normal">Clear Filters</button>
+      </div>
+    </section>
+
+    <section id="product1" class="section-p1">
+      <div class="results-info">
+        <span id="resultsCount">Showing all products</span>
+      </div>
+
+      <div class="pro-container" id="productContainer">
+        <!-- Products will be dynamically loaded here -->
+      </div>
+    </section>
+
+    <section id="pagination" class="section-p1">
+      <div class="pagination-container">
+        <button id="prevPage" class="page-btn">Previous</button>
+        <div id="pageNumbers"></div>
+        <button id="nextPage" class="page-btn">Next</button>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> KWABENYA-KFC, ACCRA, GHANA</p>
+        <p><strong>Phone:</strong> +233 593 943 403</p>
+        <p><strong>Hours:</strong> 10:00AM - 18:00PM, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2024, Bagga's Ecommerce - HTML CSS JS Template</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="shop.js"></script>
+  </body>
+</html>

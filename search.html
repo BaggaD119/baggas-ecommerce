@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <meta name="theme-color" content="#088178" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>Search Results - Bagga's Ecommerce</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <section id="header">
+      <a href="#"><img src="img/logo.png" class="logo" alt="" /></a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="Blog.html">Blog</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li>
+            <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+          </li>
+          <a href="#" id="close" style="display: none"
+            ><i class="far fa-times"></i
+          ></a>
+        </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="fa-solid fa-bag-shopping"></i></a>
+      </div>
+    </section>
+
+    <!-- Search Header -->
+    <section id="search-header" class="section-p1">
+      <div class="search-header-container">
+        <h2>Search Results</h2>
+        <div class="search-info">
+          <span id="searchQuery">""</span>
+          <span id="searchResultsCount">(0 results)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Search -->
+    <section id="advanced-search" class="section-p1">
+      <div class="advanced-search-container">
+        <div class="search-controls">
+          <div class="main-search">
+            <div class="search-input-container">
+              <input
+                type="text"
+                id="mainSearchInput"
+                placeholder="Search products, brands, categories..."
+              />
+              <button id="searchButton"><i class="fas fa-search"></i></button>
+              <button id="clearSearchButton" class="clear-btn">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div id="searchSuggestions" class="search-suggestions"></div>
+          </div>
+
+          <div class="search-filters">
+            <div class="filter-group">
+              <label for="searchCategory">Category</label>
+              <select id="searchCategory">
+                <option value="">All Categories</option>
+                <option value="shirts">T-Shirts</option>
+                <option value="pants">Pants</option>
+                <option value="shoes">Shoes</option>
+                <option value="accessories">Accessories</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="searchBrand">Brand</label>
+              <select id="searchBrand">
+                <option value="">All Brands</option>
+                <option value="adidas">Adidas</option>
+                <option value="nike">Nike</option>
+                <option value="puma">Puma</option>
+                <option value="zara">Zara</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="searchPriceRange">Price Range</label>
+              <select id="searchPriceRange">
+                <option value="">Any Price</option>
+                <option value="0-50">$0 - $50</option>
+                <option value="50-100">$50 - $100</option>
+                <option value="100-200">$100 - $200</option>
+                <option value="200+">$200+</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="searchSort">Sort By</label>
+              <select id="searchSort">
+                <option value="relevance">Relevance</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name-az">Name: A to Z</option>
+                <option value="rating">Highest Rated</option>
+                <option value="newest">Newest First</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="search-actions">
+          <button id="advancedSearchToggle" class="btn-outline">
+            <i class="fas fa-sliders-h"></i>
+            Advanced Filters
+          </button>
+          <button id="clearAllFilters" class="btn-secondary">Clear All</button>
+        </div>
+      </div>
+
+      <!-- Advanced Filters Panel -->
+      <div id="advancedFiltersPanel" class="advanced-filters-panel">
+        <div class="filter-section">
+          <h4>Price Range</h4>
+          <div class="price-range-slider">
+            <input
+              type="range"
+              id="minPrice"
+              min="0"
+              max="500"
+              value="0"
+              class="price-slider"
+            />
+            <input
+              type="range"
+              id="maxPrice"
+              min="0"
+              max="500"
+              value="500"
+              class="price-slider"
+            />
+            <div class="price-values">
+              <span>$<span id="minPriceValue">0</span></span>
+              <span>$<span id="maxPriceValue">500</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h4>Rating</h4>
+          <div class="rating-filters">
+            <label class="rating-option">
+              <input type="checkbox" value="5" />
+              <span class="stars">★★★★★</span> & Up
+            </label>
+            <label class="rating-option">
+              <input type="checkbox" value="4" />
+              <span class="stars">★★★★☆</span> & Up
+            </label>
+            <label class="rating-option">
+              <input type="checkbox" value="3" />
+              <span class="stars">★★★☆☆</span> & Up
+            </label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <h4>Availability</h4>
+          <div class="availability-filters">
+            <label class="checkbox-option">
+              <input type="checkbox" id="inStockOnly" /> In Stock Only
+            </label>
+            <label class="checkbox-option">
+              <input type="checkbox" id="onSaleOnly" /> On Sale Only
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Results -->
+    <section id="search-results" class="section-p1">
+      <div class="search-results-container">
+        <!-- Search Stats -->
+        <div class="search-stats">
+          <div class="results-summary">
+            <span id="resultsFound">0 products found</span>
+            <span id="searchTime"></span>
+          </div>
+          <div class="view-options">
+            <button id="gridView" class="view-btn active">
+              <i class="fas fa-th"></i>
+            </button>
+            <button id="listView" class="view-btn">
+              <i class="fas fa-list"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- No Results -->
+        <div id="noResults" class="no-results">
+          <div class="no-results-content">
+            <i class="fas fa-search"></i>
+            <h3>No products found</h3>
+            <p>We couldn't find any products matching your search criteria.</p>
+            <div class="search-suggestions-list">
+              <h4>Try searching for:</h4>
+              <div class="suggestion-tags">
+                <span class="suggestion-tag" data-search="t-shirt"
+                  >T-Shirts</span
+                >
+                <span class="suggestion-tag" data-search="adidas">Adidas</span>
+                <span class="suggestion-tag" data-search="casual"
+                  >Casual Wear</span
+                >
+                <span class="suggestion-tag" data-search="summer"
+                  >Summer Collection</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div id="searchResultsGrid" class="search-results-grid">
+          <!-- Results will be populated by JavaScript -->
+        </div>
+
+        <!-- Load More -->
+        <div id="loadMoreSection" class="load-more-section">
+          <button id="loadMoreBtn" class="btn-primary">
+            <i class="fas fa-plus"></i>
+            Load More Products
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search History -->
+    <section id="search-history" class="section-p1">
+      <div class="search-history-container">
+        <h3>Recent Searches</h3>
+        <div id="recentSearches" class="recent-searches">
+          <!-- Recent searches will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up for Newsletter</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address:</strong> KWABENYA-KFC, ACCRA, GHANA</p>
+        <p><strong>Phone:</strong> +233 593 943 403</p>
+        <p><strong>Hours:</strong> 10:00AM - 18:00PM, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-pinterest-p"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>&copy; 2024, Bagga's Ecommerce - HTML CSS JS Template</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="cart-utils.js"></script>
+    <script src="search.js"></script>
+  </body>
+</html>

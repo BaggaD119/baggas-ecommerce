@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard - Bagga's Admin</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="admin-complete-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Spartan', sans-serif;
+            background: #f8f9fa;
+        }
+
+        .analytics-header {
+            background: white;
+            padding: 20px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .analytics-header h1 {
+            margin: 0;
+            color: #333;
+            font-size: 28px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .analytics-container {
+            padding: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            color: #088178;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .back-link:hover {
+            color: #066b61;
+        }
+
+        /* Real-time indicators */
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #28a745;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: #28a745;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Enhanced chart containers */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .chart-container canvas {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        /* Quick actions */
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .quick-action-btn {
+            padding: 10px 20px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #666;
+            transition: all 0.2s ease;
+        }
+
+        .quick-action-btn:hover {
+            background: #088178;
+            color: white;
+            border-color: #088178;
+        }
+
+        .quick-action-btn.active {
+            background: #088178;
+            color: white;
+            border-color: #088178;
+        }
+    </style>
+</head>
+<body>
+    <!-- Analytics Header -->
+    <div class="analytics-header">
+        <div>
+            <h1>Analytics Dashboard</h1>
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span>Live Data</span>
+            </div>
+        </div>
+        <div class="header-actions">
+            <select id="analyticsTimeframe">
+                <option value="7days">Last 7 Days</option>
+                <option value="30days" selected>Last 30 Days</option>
+                <option value="90days">Last 90 Days</option>
+                <option value="1year">Last Year</option>
+            </select>
+            <button class="btn btn-secondary" onclick="exportAnalyticsReport()">
+                <i class="fas fa-download"></i> Export Report
+            </button>
+            <button class="btn btn-primary" onclick="scheduleReport()">
+                <i class="fas fa-calendar"></i> Schedule Report
+            </button>
+        </div>
+    </div>
+
+    <!-- Analytics Container -->
+    <div class="analytics-container">
+        <a href="admin-complete.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Admin Dashboard
+        </a>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="quick-action-btn active" data-period="today">Today</button>
+            <button class="quick-action-btn" data-period="week">This Week</button>
+            <button class="quick-action-btn" data-period="month">This Month</button>
+            <button class="quick-action-btn" data-period="quarter">This Quarter</button>
+            <button class="quick-action-btn" data-period="year">This Year</button>
+        </div>
+
+        <!-- Analytics Overview Cards -->
+        <div class="analytics-overview">
+            <div class="analytics-card overview-card">
+                <div class="card-icon revenue">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="analyticsRevenue">$45,230</h3>
+                    <p>Total Revenue</p>
+                    <span class="trend positive">
+                        <i class="fas fa-arrow-up"></i> +12.5%
+                    </span>
+                </div>
+            </div>
+            
+            <div class="analytics-card overview-card">
+                <div class="card-icon orders">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="analyticsOrders">1,234</h3>
+                    <p>Total Orders</p>
+                    <span class="trend positive">
+                        <i class="fas fa-arrow-up"></i> +8.3%
+                    </span>
+                </div>
+            </div>
+            
+            <div class="analytics-card overview-card">
+                <div class="card-icon customers">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="analyticsCustomers">892</h3>
+                    <p>Total Customers</p>
+                    <span class="trend positive">
+                        <i class="fas fa-arrow-up"></i> +15.2%
+                    </span>
+                </div>
+            </div>
+            
+            <div class="analytics-card overview-card">
+                <div class="card-icon conversion">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="card-content">
+                    <h3 id="analyticsConversion">3.2%</h3>
+                    <p>Conversion Rate</p>
+                    <span class="trend negative">
+                        <i class="fas fa-arrow-down"></i> -2.1%
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Charts Grid -->
+        <div class="charts-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-bottom: 30px;">
+            <!-- Revenue Trends Chart -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Revenue Trends</h3>
+                    <div class="chart-controls">
+                        <button class="chart-btn active" data-period="daily">Daily</button>
+                        <button class="chart-btn" data-period="weekly">Weekly</button>
+                        <button class="chart-btn" data-period="monthly">Monthly</button>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Top Products -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Top Products</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="topProductsChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Secondary Charts Grid -->
+        <div class="charts-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 30px;">
+            <!-- Customer Acquisition -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Customer Growth</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="customerGrowthChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Traffic Sources -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Traffic Sources</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="trafficSourcesChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Conversion Funnel -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Conversion Funnel</h3>
+                </div>
+                <div class="chart-container">
+                    <canvas id="conversionFunnelChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detailed Analytics Tables -->
+        <div class="analytics-tables" style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+            <!-- Top Pages Table -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Top Pages</h3>
+                    <button class="btn btn-sm btn-outline">View All</button>
+                </div>
+                <div class="pages-table">
+                    <table class="analytics-table">
+                        <thead>
+                            <tr>
+                                <th>Page</th>
+                                <th>Views</th>
+                                <th>Bounce Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>/shop</td>
+                                <td>12,345</td>
+                                <td>35.2%</td>
+                            </tr>
+                            <tr>
+                                <td>/</td>
+                                <td>9,876</td>
+                                <td>52.1%</td>
+                            </tr>
+                            <tr>
+                                <td>/product-detail</td>
+                                <td>7,654</td>
+                                <td>28.7%</td>
+                            </tr>
+                            <tr>
+                                <td>/cart</td>
+                                <td>4,321</td>
+                                <td>68.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h3>Recent High-Value Orders</h3>
+                    <button class="btn btn-sm btn-outline">View All</button>
+                </div>
+                <div class="orders-table">
+                    <table class="analytics-table">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ORD-001</td>
+                                <td>Sarah Johnson</td>
+                                <td>$156.00</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-002</td>
+                                <td>Mike Chen</td>
+                                <td>$134.50</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-003</td>
+                                <td>Emma Wilson</td>
+                                <td>$98.75</td>
+                            </tr>
+                            <tr>
+                                <td>#ORD-004</td>
+                                <td>David Rodriguez</td>
+                                <td>$87.25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="analytics.js"></script>
+</body>
+</html>
